@@ -1,2 +1,2 @@
-# Fyle Backend Challenge accepted and completed with Dockerfile ans a docker-compose.yml
+# Fyle Backend Challenge accepted and completed with Dockerfile and a docker-compose.yml
 
