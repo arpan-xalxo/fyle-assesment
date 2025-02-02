@@ -1,0 +1,32 @@
+
+
+services:
+  app:
+    build: .
+    container_name: flask_app
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=core/server.py
+      - FLASK_ENV=production
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    restart: always
+
+  db:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
